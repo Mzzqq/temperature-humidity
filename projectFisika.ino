@@ -22,19 +22,34 @@ void setup(){
 }
 
 void loop(){
-  int h = dht.readHumidity();
-  int s = dht.readTemperature();
+  float c, r, k, f;
+  c = dht.readTemperature();
+  k = c + 273.15;
+  r = c * (4.0/5.0);
+  f = (9.0/5.0)*c + 32;
 
-  Serial.print("kelembapan: ");
-  Serial.print(h);
-  Serial.print("%");  
+  Serial.print("Celcius: ");
+  Serial.print(c);
+  Serial.print(" °C");  
   Serial.print("\n");
-  Serial.print("Suhu: ");
-  Serial.print(s);
-  Serial.print("^C");  
+  Serial.print("Kelvin: ");
+  Serial.print(k);
+  Serial.print(" °K");  
+  Serial.print("\n");
+  Serial.print("Reamur: ");
+  Serial.print(r);
+  Serial.print(" °R");  
+  Serial.print("\n");
+  Serial.print("fahrenheit: ");
+  Serial.print(f);
+  Serial.print(" °F");  
+  Serial.print("\n");
   Serial.print("\n");
 
-  Blynk.virtualWrite(V0, s);
-  Blynk.virtualWrite(V1, h);    
-  delay(500);
+  Blynk.virtualWrite(V0, c);
+  Blynk.virtualWrite(V1, k);
+  Blynk.virtualWrite(V2, r);
+  Blynk.virtualWrite(V3, f); 
+
+  delay(1000);
 }
