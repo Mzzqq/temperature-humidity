@@ -1,6 +1,6 @@
 #define BLYNK_TEMPLATE_ID           "TMPL3FBKDL8v"
 #define BLYNK_DEVICE_NAME           "Quickstart Device"
-#define BLYNK_AUTH_TOKEN            "vTngXsPUUHmxagyW-4z6ub527-d5kHzU"
+#define BLYNK_AUTH_TOKEN            "Your auth token"
 #define BLYNK_PRINT Serial
 #define DHTTYPE DHT11
 #define DHTPIN D3
@@ -11,9 +11,9 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
-char auth[]= "vTngXsPUUHmxagyW-4z6ub527-d5kHzU";
-char ssid[]="Fk";
-char pass[]="12345678g";
+char auth[]= BLYNK_AUTH_TOKEN;
+char ssid[]="your wifi ssid";
+char pass[]="your wifi pass";
 
 void setup(){
   Serial.begin(9600);
